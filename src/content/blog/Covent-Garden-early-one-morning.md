@@ -1,6 +1,6 @@
 ---
 heroImage: /images/IMG_4866.JPEG
-category: Photography
+category: Web Development
 description: Early doors at Covent Garden yields great photo opportunities
 pubDate: 2025-01-23T00:00:00.000Z
 tags:

@@ -12,7 +12,7 @@ interface SiteConfig {
 export const siteConfig: SiteConfig = {
 	site: 'https://nicklewis.blog/', // Write here your website url
 	author: 'Nick Lewis', // Site author
-	title: 'Nick Lewis', // Site title.
+	title: 'HeadForCode', // Site title.
 	description: 'Web Developer, Photographer, Musician.', // Description to display in the meta tags
 	lang: 'en-GB',
 	ogLocale: 'en_GB',

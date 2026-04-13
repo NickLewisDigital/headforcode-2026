@@ -13,6 +13,25 @@ const posts = await getPosts(MAX_POSTS)
 
 <BaseLayout title='Home'>
 	<TitlePage title={siteConfig.title} />
+
+	<section
+		class='my-8 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 p-6 md:p-8'
+	>
+		<p class='text-lg md:text-xl font-medium leading-relaxed text-gray-800 dark:text-gray-100'>
+			We help small businesses grow with smart, modern technology.
+		</p>
+		<p class='mt-3 text-base leading-relaxed text-gray-600 dark:text-gray-300'>
+			From <strong>AI-powered solutions</strong> that streamline your operations, to <strong
+				>content management systems</strong
+			> that put you in control of your online presence, to <strong>bespoke web development</strong> that
+			turns visitors into customers &mdash; we deliver the tools your business needs to thrive in a digital
+			world.
+		</p>
+		<p class='mt-3 text-sm text-gray-500 dark:text-gray-400'>
+			Explore our latest thinking below, or get in touch to see how we can help.
+		</p>
+	</section>
+
 	<ListCategories />
 
 	<div>

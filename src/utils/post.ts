@@ -14,7 +14,10 @@ export const getCategories = async () => {
 export const getPosts = async (max?: number) => {
 	return (await getCollection('blog'))
 		.filter((post) => !post.data.draft)
-		.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+		.sort((a, b) => {
+			if (a.data.pinned !== b.data.pinned) return a.data.pinned ? -1 : 1
+			return b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+		})
 		.slice(0, max)
 }
 
@@ -50,4 +53,3 @@ export const filterPostsByCategory = async (category: string) => {
 		.filter((post) => !post.data.draft)
 		.filter((post) => post.data.category.toLowerCase() === category)
 }
-

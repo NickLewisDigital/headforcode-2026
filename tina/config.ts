@@ -63,6 +63,12 @@ export default defineConfig({
 						description: 'If this is checked the post will not be published'
 					},
 					{
+						name: 'pinned',
+						label: 'Pinned',
+						type: 'boolean',
+						description: 'If this is checked the post will be shown first on the homepage'
+					},
+					{
 						type: 'string',
 						name: 'tags',
 						required: true,

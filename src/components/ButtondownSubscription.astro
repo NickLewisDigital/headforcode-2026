@@ -8,9 +8,9 @@ type Props = {
 }
 
 const {
-	buttondownUrl = 'https://buttondown.email/api/emails/embed-subscribe/nickeblewis',
+	buttondownUrl = 'https://buttondown.email/api/emails/embed-subscribe/headforcode',
 	title = 'Stay Updated',
-	description = 'Get notified when I publish new posts about web development, photography, and music.',
+	description = 'Get notified when I publish new posts about web development, AI, and tech.',
 	placeholder = 'Enter your email address',
 	buttonText = 'Subscribe'
 } = Astro.props
@@ -29,7 +29,7 @@ const {
 
 		<form action={buttondownUrl} method='post' class='space-y-4' id='newsletter-form'>
 			<!-- Hidden field to redirect to our custom success page -->
-			<input type='hidden' name='next' value='https://nicklewis.blog/subscription-success' />
+			<input type='hidden' name='next' value='https://headforcode.com/subscription-success' />
 
 			<div class='flex flex-col sm:flex-row gap-3'>
 				<input
