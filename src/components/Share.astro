@@ -1,29 +1,65 @@
 ---
 import { siteConfig } from '@/data/site.config'
-import TwitterColorIcon from './icons/TwitterColorIcon.astro'
 import LinkedinColorIcon from './icons/LinkedinColorIcon.astro'
+import BlueskyColorIcon from './icons/BlueskyColorIcon.astro'
+import SubstackColorIcon from './icons/SubstackColorIcon.astro'
 const message = siteConfig.shareMessage
 
-const URL = Astro.url.href
+const currentURL = Astro.url.href
 ---
 
 <div class='flex flex-col gap-2'>
 	<span class='mb-1 font-bold text-2xl'>Share</span>
 	<ul class='flex gap-3 text-black dark:text-white'>
-		<li>Coming soon, I quit Twitter etc</li>
-		<!-- <li>
-			<a
-				href={`https://twitter.com/intent/tweet?text=${message + ' ' + URL}`}
-				aria-label='Share on Twitter'><TwitterColorIcon /></a
+		<li>
+			<button id='linkedin-share-btn' aria-label='Share on LinkedIn' class='cursor-pointer'
+				><LinkedinColorIcon /></button
 			>
 		</li>
 		<li>
 			<a
-				href={`https://www.linkedin.com/shareArticle?mini=true&url=${URL}`}
-				aria-label='Share on LinkedIn'
+				href={`https://bsky.app/intent/compose?text=${encodeURIComponent(message + ' ' + currentURL)}`}
+				target='_blank'
+				rel='noopener noreferrer'
+				aria-label='Share on BlueSky'><BlueskyColorIcon /></a
 			>
-				<LinkedinColorIcon /></a
+		</li>
+		<li>
+			<a
+				href={`https://substack.com/note?action=share&url=${encodeURIComponent(currentURL)}`}
+				target='_blank'
+				rel='noopener noreferrer'
+				aria-label='Share on Substack'><SubstackColorIcon /></a
 			>
-		</li> -->
+		</li>
 	</ul>
 </div>
+
+<!-- LinkedIn share widget (hidden, activated by button above) -->
+<div
+	id='li-share-widget'
+	aria-hidden='true'
+	style='position:absolute;width:0;height:0;overflow:hidden;'
+>
+	<script is:inline src='https://platform.linkedin.com/in.js' type='text/javascript'>
+		lang: en_US
+	</script>
+	<script type='IN/Share' data-url={currentURL}></script>
+</div>
+
+<script define:vars={{ shareURL: currentURL }}>
+	const btn = document.getElementById('linkedin-share-btn')
+	btn?.addEventListener('click', () => {
+		// Try to trigger LinkedIn's rendered share anchor
+		const liLink = document.querySelector('#li-share-widget a')
+		if (liLink) {
+			liLink.click()
+		} else {
+			window.open(
+				`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareURL)}`,
+				'linkedin-share',
+				'width=600,height=600'
+			)
+		}
+	})
+</script>
