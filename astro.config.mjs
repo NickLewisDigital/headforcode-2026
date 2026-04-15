@@ -13,7 +13,6 @@ export default defineConfig({
 	},
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
-		drafts: true,
 		shikiConfig: {
 			theme: 'material-theme-palenight',
 			wrap: true
@@ -23,13 +22,12 @@ export default defineConfig({
 		mdx({
 			syntaxHighlight: 'shiki',
 			shikiConfig: {
-				experimentalThemes: {
+				themes: {
 					light: 'vitesse-light',
-					dark: 'material-theme-palenight',
-				  },
+					dark: 'material-theme-palenight'
+				},
 				wrap: true
-			},
-			drafts: true
+			}
 		}),
 		sitemap(),
 		tailwind()
