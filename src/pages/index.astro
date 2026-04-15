@@ -3,6 +3,7 @@ import ListCategories from '@/components/ListCategories'
 import ListPosts from '@/components/ListPosts'
 import TitlePage from '@/components/TitlePage'
 import ButtondownSubscription from '@/components/ButtondownSubscription'
+import ContactForm from '@/components/ContactForm'
 import BaseLayout from '@/layouts/BaseLayout'
 import { getPosts } from '@/utils'
 import { siteConfig } from '@/site-config'
@@ -31,62 +32,6 @@ const posts = await getPosts(MAX_POSTS)
 				Explore our latest thinking below, or get in touch to see how we can help.
 			</p>
 		</section>
-
-		<section class='rounded-2xl bg-teal-50 dark:bg-teal-900/30 p-6 md:p-8'>
-			<h3 class='text-lg font-medium text-teal-900 dark:text-white mb-4'>Get in Touch</h3>
-			<form name='contact' method='POST' data-netlify='true' class='space-y-4'>
-				<div>
-					<label class='block text-sm font-medium text-teal-800 dark:text-teal-100 mb-1'
-						>Your Name
-						<input
-							type='text'
-							name='name'
-							class='mt-1 block w-full rounded-lg border border-teal-200 dark:border-teal-700 bg-white dark:bg-teal-800/50 px-3 py-2 text-sm text-teal-900 dark:text-white focus:ring-2 focus:ring-teal-400 focus:border-transparent'
-						/>
-					</label>
-				</div>
-				<div>
-					<label class='block text-sm font-medium text-teal-800 dark:text-teal-100 mb-1'
-						>Your Email
-						<input
-							type='email'
-							name='email'
-							class='mt-1 block w-full rounded-lg border border-teal-200 dark:border-teal-700 bg-white dark:bg-teal-800/50 px-3 py-2 text-sm text-teal-900 dark:text-white focus:ring-2 focus:ring-teal-400 focus:border-transparent'
-						/>
-					</label>
-				</div>
-				<!-- <div>
-					<label class='block text-sm font-medium text-teal-800 dark:text-teal-100 mb-1'>Your Role
-						<select
-							name='role[]'
-							multiple
-							class='mt-1 block w-full rounded-lg border border-teal-200 dark:border-teal-700 bg-white dark:bg-teal-800/50 px-3 py-2 text-sm text-teal-900 dark:text-white focus:ring-2 focus:ring-teal-400 focus:border-transparent'
-						>
-							<option value='leader'>Leader</option>
-							<option value='follower'>Follower</option>
-						</select>
-					</label>
-				</div> -->
-				<div>
-					<label class='block text-sm font-medium text-teal-800 dark:text-teal-100 mb-1'
-						>Message
-						<textarea
-							name='message'
-							rows='3'
-							class='mt-1 block w-full rounded-lg border border-teal-200 dark:border-teal-700 bg-white dark:bg-teal-800/50 px-3 py-2 text-sm text-teal-900 dark:text-white focus:ring-2 focus:ring-teal-400 focus:border-transparent'
-						></textarea>
-					</label>
-				</div>
-				<div>
-					<button
-						type='submit'
-						class='rounded-lg bg-teal-600 hover:bg-teal-700 px-4 py-2 text-sm font-medium text-white transition-colors'
-					>
-						Send
-					</button>
-				</div>
-			</form>
-		</section>
 	</div>
 
 	<ListCategories />
@@ -95,6 +40,7 @@ const posts = await getPosts(MAX_POSTS)
 		<h2 class='text-lg font-medium tracking-wide text-end'>Latest Posts</h2>
 		<ListPosts FirstBig={true} posts={posts} />
 	</div>
+	<ContactForm />
 	<ButtondownSubscription />
 </BaseLayout>
 
