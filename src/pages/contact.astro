@@ -1,0 +1,37 @@
+---
+import BaseLayout from '@/layouts/BaseLayout'
+import ContactForm from '@/components/ContactForm'
+---
+
+<BaseLayout title='Contact'>
+	<section
+		class='relative overflow-hidden rounded-2xl bg-cover bg-center min-h-[360px] md:min-h-[440px] flex items-center justify-center'
+		style="background-image: url('/images/head_for_code_cover.jpeg');"
+	>
+		<div class='absolute inset-0 bg-black/50'></div>
+		<div class='relative z-10 p-6 md:p-12 text-center text-white'>
+			<h1 class='text-4xl md:text-6xl font-bold leading-tight'>Get in touch</h1>
+		</div>
+	</section>
+
+	<div class='grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch'>
+		<aside
+			class='bg-blue-600 text-white p-6 md:p-10 flex flex-col justify-center rounded-2xl h-full'
+		>
+			<h2 class='text-2xl md:text-3xl font-bold text-yellow-400'>Let's build something together</h2>
+			<p class='mt-4 text-base md:text-lg leading-relaxed text-blue-50'>
+				Whether you're looking to launch a new website, modernise an existing product, or bring an
+				AI-powered idea to life &mdash; we'd love to hear from you.
+			</p>
+			<p class='mt-4 text-base md:text-lg leading-relaxed text-blue-50'>
+				Drop us a message using the form and we'll get back to you within a couple of working days
+				to talk through your project.
+			</p>
+			<p class='mt-4 text-sm text-blue-100'>
+				Based in Reading, Berkshire &mdash; working worldwide.
+			</p>
+		</aside>
+
+		<ContactForm />
+	</div>
+</BaseLayout>
